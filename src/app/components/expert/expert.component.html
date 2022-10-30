@@ -1,0 +1,30 @@
+<h1 class="mt-3 mb-3" >Total</h1>
+<app-search></app-search>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Continent name</th>
+            <th>Region Name</th>
+            <th>Country name</th>
+            <th>Year</th>
+            <th>Population</th>
+            <th>Gdp</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let total of expert| paginate: {itemsPerPage: pageSize,
+            currentPage: page,
+            totalItems: totalLength}">
+            <td>{{total.continentName}}</td>
+            <td>{{total.regionName}}</td>
+            <td>{{total.countryName}}</td>
+            <td>{{total.year}}</td>
+            <td>{{total.population}}</td>
+            <td>{{total.gdp}}</td>  
+        </tr>
+    </tbody>
+    <div *ngIf="expert?.length == 0" class="alert alert-warning col-md-12" role="alert">Nothing found.</div>
+</table>
+<pagination-controls class= "text-center" (pageChange)="page = $event" previousLabel="prev" nextLabel="next" >
+</pagination-controls>

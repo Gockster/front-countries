@@ -1,0 +1,28 @@
+<h1 class="mt-3 mb-3" >Countries with max gdp</h1>
+<table class="table">
+    
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Country-Code-3</th>
+            <th>Year</th>
+            <th>Population</th>
+            <th>Max gdp per country</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tempRes of second  | paginate: {itemsPerPage: pageSize,
+            currentPage: page,
+            totalItems: totalLength}">
+            <td>{{tempRes.name}}</td>
+            <td>{{tempRes.country_code3}}</td>
+            <td>{{tempRes.year}}</td>
+            <td>{{tempRes.population}}</td>
+            <td>{{tempRes.gdp}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<pagination-controls class= "text-center" (pageChange)="page = $event" previousLabel="prev" nextLabel="next" >
+</pagination-controls>
